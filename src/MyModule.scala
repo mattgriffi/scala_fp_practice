@@ -35,4 +35,26 @@ object MyModule {
         val formatString = "The %s of %d is %d"
         formatString.format(name, n, f(n))
     }
+
+    def findFirst[A](a: Array[A], key: A => Boolean): Int = {
+        @annotation.tailrec
+        def loop(n: Int): Int = {
+            if (n >= a.length) -1
+            else if (key(a(n))) n
+            else loop(n + 1)
+        }
+        loop(0)
+    }
+
+    def isSorted[A](a: Array[A], ordered: (A, A) => Boolean): Boolean = {
+        @annotation.tailrec
+        def loop(n: Int): Boolean = {
+            if (n >= a.length) true
+            else if (ordered(a(n), a(n-1))) loop(n + 1)
+            else false
+        }
+
+        if (a.length <= 1) true
+        else loop(1)
+    }
 }
