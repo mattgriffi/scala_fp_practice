@@ -6,6 +6,13 @@ object MyModule {
         System.out.println(formatResult(-42, "absolute value", abs))
         System.out.println(formatResult(12, "Fibonacci number", fibonacci))
         System.out.println(formatResult(7, "factorial", factorial))
+        System.out.println(isSorted(Array(2, 4, 6, 7, 8), (x: Int, y: Int) => x < y))
+        System.out.println(isSorted(Array(2, 9, 6, 7, 8), (x: Int, y: Int) => x < y))
+        System.out.println(isSorted(Array(2, 4, 6, 7, 6), (x: Int, y: Int) => x < y))
+        System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 5))
+        System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 6))
+        System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 2))
+        System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 7))
     }
 
     def abs(n: Int): Int = {
@@ -50,7 +57,7 @@ object MyModule {
         @annotation.tailrec
         def loop(n: Int): Boolean = {
             if (n >= a.length) true
-            else if (ordered(a(n), a(n-1))) loop(n + 1)
+            else if (ordered(a(n-1), a(n))) loop(n + 1)
             else false
         }
 
