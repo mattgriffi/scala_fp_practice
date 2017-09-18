@@ -28,23 +28,30 @@ object List {
         case Cons(_, x) => x
     }
 
-    def setHead[A](xs: List[A], head: A): List [A] = xs match {
+    def setHead[A](xs: List[A])(head: A): List [A] = xs match {
         case Nil => List(head)
         case Cons(_, x) => Cons(head, x)
 
     }
 
     def drop[A](xs: List[A], n: Int): List[A] = xs match {
-        case Nil => Nil
-        case Cons(_, x) =>
-            if (n <= 0)  xs
-            else  drop(x, n - 1)
+        case Cons(_, x) if n > 0 => drop(x, n - 1)
+        case _ => xs
     }
 
-    def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    def dropWhile[A](as: List[A])(f: A => Boolean): List[A] = as match {
+        case Cons(h, t) if f(h) => dropWhile(t)(f)
+        case _ => as
+    }
+
+    def append[A](a1: List[A])(a2: List[A]): List[A] = a1 match {
+        case Nil => a2
+        case Cons(h, t) => Cons(h, append(t)(a2))
+    }
+
+    def init[A](l: List[A]): List[A] = l match {
         case Nil => Nil
-        case Cons(x, xs) =>
-            if (f(x)) dropWhile(xs, f)
-            else l
+        case Cons(x, Nil) => Nil
+        case Cons(x, xs) => Cons(x, init(xs))
     }
 }
