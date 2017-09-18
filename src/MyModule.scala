@@ -14,10 +14,8 @@ object MyModule {
         System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 2))
         System.out.println(findFirst(Array(2, 3, 4, 5, 5, 6), (x: Int) => x == 7))
 
-        val x = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
-        System.out.println(List.dropWhile(x)((y) => y < 10))
-        List.setHead[Int](x)(5)
-        System.out.println(x)
+        System.out.println(List.foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)))
+        System.out.println(List.length(List(1, 2, 3, 4)))
 
     }
 

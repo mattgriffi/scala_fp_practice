@@ -56,4 +56,8 @@ object List {
         case Cons(x, Nil) => Nil
         case Cons(x, xs) => Cons(x, init(xs))
     }
+
+    def length[A](as: List[A]): Int = {
+        foldRight(as, 0)((_, x) => x + 1)
+    }
 }
