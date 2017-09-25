@@ -18,6 +18,10 @@ object List {
         case Cons(x, xs) => f(x, foldRight(xs, z)(f))
     }
 
+    def reverse[A](as: List[A]): List[A] = {
+        foldLeft(as, List[A]())((acc, h) => Cons(h, acc))
+    }
+
     def sum(ints: List[Int]): Int = {
         foldRight(ints, 0)(_ + _)
     }
