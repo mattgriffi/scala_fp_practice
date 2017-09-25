@@ -22,8 +22,16 @@ object List {
         foldRight(ints, 0)(_ + _)
     }
 
+    def sum2(ints: List[Int]): Int = {
+        foldLeft(ints, 0)(_ + _)
+    }
+
     def product(ds: List[Double]): Double = {
         foldRight(ds, 1.0)(_ * _)
+    }
+
+    def product2(ds: List[Double]): Double = {
+        foldLeft(ds, 1.0)(_ * _)
     }
 
     def apply[A](as: A*): List[A] = {
@@ -65,5 +73,9 @@ object List {
 
     def length[A](as: List[A]): Int = {
         foldRight(as, 0)((_, x) => x + 1)
+    }
+
+    def length2[A](as: List[A]): Int = {
+        foldLeft(as, 0)((x, _) => x + 1)
     }
 }

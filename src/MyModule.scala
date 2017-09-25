@@ -16,6 +16,9 @@ object MyModule {
 
         System.out.println(List.foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)))
         System.out.println(List.length(List(1, 2, 3, 4)))
+        System.out.println(List.sum2(List(1, 2, 3, 4)))
+        System.out.println(List.product2(List(1, 2, 3, 4)))
+        System.out.println(List.length2(List(1, 2, 4, 5)))
 
     }
 
