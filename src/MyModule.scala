@@ -19,6 +19,7 @@ object MyModule {
         System.out.println(List.sum2(List(1, 2, 3, 4)))
         System.out.println(List.product2(List(1, 2, 3, 4)))
         System.out.println(List.length2(List(1, 2, 4, 5)))
+        System.out.println(List.concatenate(List(List(1, 2, 3), List(5, 6, 7), List(11, 12, 13))))
 
     }
 

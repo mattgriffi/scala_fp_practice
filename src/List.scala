@@ -73,6 +73,14 @@ object List {
         case Cons(h, t) => Cons(h, append(t)(a2))
     }
 
+    def append2[A](a1: List[A])(a2: List[A]): List[A] = {
+        foldRight2(a1, a2)(Cons(_, _))
+    }
+
+    def concatenate[A](l: List[List[A]]): List[A] = {
+        foldLeft(l, List[A]())((acc, a) => append2(acc)(a))
+    }
+
     def init[A](l: List[A]): List[A] = l match {
         case Nil => Nil
         case Cons(x, Nil) => Nil
