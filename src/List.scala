@@ -78,7 +78,7 @@ object List {
     }
 
     def concatenate[A](l: List[List[A]]): List[A] = {
-        foldLeft(l, List[A]())((acc, a) => append2(acc)(a))
+        foldRight(l, Nil: List[A])((a, acc) => append(a)(acc))
     }
 
     def init[A](l: List[A]): List[A] = l match {
