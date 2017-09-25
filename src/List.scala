@@ -94,4 +94,14 @@ object List {
     def length2[A](as: List[A]): Int = {
         foldLeft(as, 0)((x, _) => x + 1)
     }
+
+    def plus1(as: List[Int]): List[Int] = as match {
+        case Nil => Nil
+        case Cons(h, t) => Cons(h + 1, plus1(t))
+    }
+
+    def doubleToString(ds: List[Double]): List[String] = ds match {
+        case Nil => Nil
+        case Cons(h, t) => Cons(h.toString, doubleToString(t))
+    }
 }
