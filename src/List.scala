@@ -18,6 +18,10 @@ object List {
         case Cons(x, xs) => f(x, foldRight(xs, z)(f))
     }
 
+    def foldRight2[A, B](as: List[A], z: B)(f: (A, B) => B): B = {
+        foldLeft(reverse(as), z)((b, a) => f(a, b))
+    }
+
     def reverse[A](as: List[A]): List[A] = {
         foldLeft(as, List[A]())((acc, h) => Cons(h, acc))
     }
