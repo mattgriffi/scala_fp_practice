@@ -23,6 +23,7 @@ object MyModule {
         System.out.println(List.plus1(List(1, 2, 3, 4, 5)))
         System.out.println(List.map(List(1, 2, 3, 4, 5))(_ * 2))
         System.out.println(List.filter(List(1, 2, 3, 4, 5, 6, 7, 8, 9))(x => x % 2 == 0))
+        System.out.println(List.flatMap(List(1, 2, 3, 4, 5))(x => List(x, 2*x, 3*x)))
 
     }
 
